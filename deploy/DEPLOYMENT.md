@@ -89,3 +89,24 @@ deployer balance 0 afterwards, key shredded), nonces 0/1/2:
   mee.ai holds 65,493,450 G1999 v4; total supply 99,990,000.
 - v3 set (token 0xC3c403ed…, NFT 0x19ec51c1…, mining 0xcc26bACC…) is SUPERSEDED/inert.
   Canonical set is now the v4 set above.
+
+## Launch notes (v4, 2026-10-31)
+
+- IPFS pinning via Filebase CAR import (1 pin per folder DAG):
+  images bafybeigdds6grrv6uxnskxvwjv7apcdya4r7tbp27cudukq7dahekqqnvu,
+  metadata bafybeifvkhpxkfgbizxyo5ftntqx5jkmogr4z5olgswnyryhcfgiaigymm.
+  setBaseURI tx 0x94abef3de400522bdd0e6ee025ab2c1d09aca0b22e9427cdd6ed8934e6452c23.
+  Mining tokenPriceUsd set to 90917 ($0.00090917).
+- KNOWN NOTE: mintMiningReserve uses _safeMint, and Mining1999 does not
+  implement IERC721Receiver, so minting the mining reserve TO the mining
+  contract reverts. The 45 Legendary mining-reserve NFTs are therefore held
+  in the owner wallet (mee.ai) as the project reserve, which matches
+  PLAN.md's intent (special mining rewards distributed by the owner).
+  Team reserve: 70 NFTs (Rare 30, Epic 25, Legendary 15) in the owner wallet.
+- LAUNCHED LIVE 2026-10-31 ~20:45 Asia/Dhaka: reserve mints complete
+  (totalMinted 115, all in the owner wallet), then
+  setFreeMintActive(true) tx 0x0fac53377822f5a03a1ecb01e63674e34ed0b2cb8bd5dc6eab56ba43a3d98047,
+  setSaleActive(true) tx 0xae5048dbb356ca4f6b4f7e04cc2cae38bb3af871a07cbee26c3178e82bf05289,
+  startMining() tx 0x0173fe5950d8ad5b1b11d968544de38fc20604c456d6078a80dc19ddd1211e19.
+  Verified: freeMintActive=1, saleActive=1, started=1 (startTime 1793457926),
+  all receipts status 1; free pool 1,641 and sale 243 untouched.
