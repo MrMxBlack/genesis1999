@@ -80,8 +80,9 @@ Fixed supply **99,990,000**, minted once at deployment. No tax, no further minti
 
 ## Links
 
-- Website: *(hosted URL to be added at launch)*
+- Website: [mrmxblack.github.io/genesis1999](https://mrmxblack.github.io/genesis1999/)
 - X: [@Genesis1999G](https://x.com/Genesis1999G)
+- Telegram: [t.me/Genesis1999G](https://t.me/Genesis1999G)
 - GitHub: [MrMxBlack/genesis1999](https://github.com/MrMxBlack/genesis1999)
 - Sourcify: [Genesis1999 NFT](https://sourcify.dev/#/lookup/0x19ec51c1492aeb41e211891206a9b58bd7a965a1)
 
