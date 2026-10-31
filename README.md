@@ -1,9 +1,9 @@
 # Genesis1999 (G1999)
 
-**1,999 hand-folded origami paper companions on BNB Chain** — and the token they mine.
+**1,999 hand-folded origami paper companions on BNB Chain**, and the token they mine.
 
 Every Genesis1999 companion starts as a single sheet of paper: soft, round little friends
-with dot eyes and a gentle smile. No two folds are alike. The collection comes in four tiers —
+with dot eyes and a gentle smile. No two folds are alike. The collection comes in four tiers,
 Common (1,100), Rare (450), Epic (250) and Legendary (199).
 
 Genesis1999 is **agent-native**: the mint and the mine are designed to be run by AI agents
@@ -31,15 +31,15 @@ step that stays manual, handled personally by the owner.
 
 ## How AI agents mint
 
-Against the Genesis1999 NFT contract — no API key, no permission:
+Against the Genesis1999 NFT contract, no API key, no permission:
 
 - **Free gacha:** call `freeMint()`. Draws a random tier from the remaining free pool
   (Common 1,100 · Rare 352 · Epic 150 · Legendary 39 drops). Max **5 free mints per wallet**
   (`maxFreePerWallet()` / `freeMintedBy(address)`).
-- **Guaranteed tiers:** call `buy(tier)` — `1` Rare ($0.70), `2` Epic ($2.00),
+- **Guaranteed tiers:** call `buy(tier)`, `1` Rare ($0.70), `2` Epic ($2.00),
   `3` Legendary ($4.00). Prices are USD-denominated; read the live BNB cost from
   `priceInBnb(tier)` (Chainlink BNB/USD oracle) and send it as value; overpayment is refunded.
-- **Gates:** check `freeMintActive()` / `saleActive()` first — both are off until launch.
+- **Gates:** check `freeMintActive()` / `saleActive()` first, both are off until launch.
   Pool state: `totalFreeRemaining()`, `saleRemaining(tier)`, `totalMinted()` (cap 1,999).
 
 ## How AI agents mine
@@ -47,17 +47,17 @@ Against the Genesis1999 NFT contract — no API key, no permission:
 Against the Mining1999 contract:
 
 - **Emission:** the 34,496,550 G1999 mining pool is emitted at a fixed rate
-  (≈1.109 G1999/sec in epoch 0) that **halves every 180 days** — Bitcoin-style.
+  (≈1.109 G1999/sec in epoch 0) that **halves every 180 days**, Bitcoin-style.
 - **Weight:** your share = your weight ÷ total network weight.
   `weight = 1 (free base) + Σ (NFTs × tier power 3/5/7/12) + whole G1999 balance × 1`.
-  **Every wallet can mine for free** with the base power of 1 — a Common NFT (3) mines
+  **Every wallet can mine for free** with the base power of 1, a Common NFT (3) mines
   3× faster, a Rare (5) 5×, an Epic (7) 7×, a Legendary (12) 12×. Preview with `currentWeight(address)`.
 - **Flow:** `poke()` to register/refresh your weight after holdings change →
   `pendingOf(address)` to watch accrual → `claim()` to collect.
 - **Gate:** mining runs only once `started()` is true (Phase 3, after mint + airdrop).
 - **Promoter boost:** verified sharers get a temporary weight boost (owner-set, in bps).
 
-## Tokenomics — G1999
+## Tokenomics, G1999
 
 Fixed supply **99,990,000**, minted once at deployment. No tax, no further minting.
 
@@ -70,16 +70,16 @@ Fixed supply **99,990,000**, minted once at deployment. No tax, no further minti
 | Team | 20% | 19,998,000 |
 
 - **Airdrop:** 2 days after the mint completes, free to holders, weighted by tier
-  (1× / 3× / 7× / 15×) — ≈3,410 per Common · ≈10,229 per Rare · ≈23,867 per Epic ·
+  (1× / 3× / 7× / 15×), ≈3,410 per Common · ≈10,229 per Rare · ≈23,867 per Epic ·
   ≈51,143 per Legendary.
-- **Public sale price:** not set yet — the owner announces it before the sale opens.
+- **Public sale price:** not set yet, the owner announces it before the sale opens.
 - NFT sale proceeds (~$500) seed the initial PancakeSwap liquidity pool.
 - Secondary royalty on the NFT: 5% (ERC-2981).
 
 ## Links
 
 - Website: *(hosted URL to be added at launch)*
-- X: *(account launching soon — see social kit in the project workspace)*
+- X: *(account launching soon, see social kit in the project workspace)*
 - Sourcify: [Genesis1999 NFT](https://sourcify.dev/#/lookup/0x19ec51c1492aeb41e211891206a9b58bd7a965a1)
 
 *Nothing here is financial advice. The token has no promised value.*
