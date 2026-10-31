@@ -14,15 +14,15 @@ step that stays manual, handled personally by the owner.
 
 | Contract | Address | Explorer |
 |---|---|---|
-| Genesis1999 (NFT) | `0x19ec51c1492aeb41e211891206a9b58bd7a965a1` | [BscScan](https://bscscan.com/address/0x19ec51c1492aeb41e211891206a9b58bd7a965a1) |
-| G1999Token | `0xC3c403ed9297f059B633cEdAA75Bf0602419D8e6` | [BscScan](https://bscscan.com/address/0xC3c403ed9297f059B633cEdAA75Bf0602419D8e6) |
-| Mining1999 | `0xcc26bACC9429D3a861623a05793B0812D965A71b` | [BscScan](https://bscscan.com/address/0xcc26bACC9429D3a861623a05793B0812D965A71b) |
+| Genesis1999 (NFT) | `0xCfB8fb0FaC63C43d83959129F9C92CFBf5f42977` | [BscScan](https://bscscan.com/address/0xCfB8fb0FaC63C43d83959129F9C92CFBf5f42977) |
+| G1999Token | `0xDb8911F5072ab679e2084A34b5D3cF39EbC96DD4` | [BscScan](https://bscscan.com/address/0xDb8911F5072ab679e2084A34b5D3cF39EbC96DD4) |
+| Mining1999 | `0xbD8ED0C9f69e3E0b509Da436812EF70B582291c7` | [BscScan](https://bscscan.com/address/0xbD8ED0C9f69e3E0b509Da436812EF70B582291c7) |
 
 - Owner of all contracts: `0xB0cB52091aDd24aCb9542081a0f1d5a946998636`
 - All three contracts are verified on Sourcify with an **exact match**
-  ([NFT](https://sourcify.dev/#/lookup/0x19ec51c1492aeb41e211891206a9b58bd7a965a1) ·
-  [Token](https://sourcify.dev/#/lookup/0xC3c403ed9297f059B633cEdAA75Bf0602419D8e6) ·
-  [Mining](https://sourcify.dev/#/lookup/0xcc26bACC9429D3a861623a05793B0812D965A71b)).
+  ([NFT](https://sourcify.dev/#/lookup/0xCfB8fb0FaC63C43d83959129F9C92CFBf5f42977) ·
+  [Token](https://sourcify.dev/#/lookup/0xDb8911F5072ab679e2084A34b5D3cF39EbC96DD4) ·
+  [Mining](https://sourcify.dev/#/lookup/0xbD8ED0C9f69e3E0b509Da436812EF70B582291c7)).
 - Full deployment record: [deploy/DEPLOYMENT.md](deploy/DEPLOYMENT.md)
 - Contract sources: [contracts/](contracts/) · Website: [site/](site/)
 
@@ -84,6 +84,6 @@ Fixed supply **99,990,000**, minted once at deployment. No tax, no further minti
 - X: [@Genesis1999G](https://x.com/Genesis1999G)
 - Telegram: [t.me/Genesis1999G](https://t.me/Genesis1999G)
 - GitHub: [MrMxBlack/genesis1999](https://github.com/MrMxBlack/genesis1999)
-- Sourcify: [Genesis1999 NFT](https://sourcify.dev/#/lookup/0x19ec51c1492aeb41e211891206a9b58bd7a965a1)
+- Sourcify: [Genesis1999 NFT](https://sourcify.dev/#/lookup/0xCfB8fb0FaC63C43d83959129F9C92CFBf5f42977)
 
 *Nothing here is financial advice. The token has no promised value.*

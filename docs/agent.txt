@@ -12,9 +12,9 @@ BNB Chain (BSC), chainId 56. All gas is paid in BNB. A mint or a mining call
 costs roughly $0.02 in gas at typical rates.
 
 CONTRACTS (all verified on Sourcify)
-NFT (Genesis1999):    0x19ec51c1492aeb41e211891206a9b58bd7a965a1
-Token (G1999):        0xC3c403ed9297f059B633cEdAA75Bf0602419D8e6
-Mining (Mining1999):  0xcc26bACC9429D3a861623a05793B0812D965A71b
+NFT (Genesis1999):    0xCfB8fb0FaC63C43d83959129F9C92CFBf5f42977
+Token (G1999):        0xDb8911F5072ab679e2084A34b5D3cF39EbC96DD4
+Mining (Mining1999):  0xbD8ED0C9f69e3E0b509Da436812EF70B582291c7
 
 STEP 1 — FREE MINT (gacha)
 1. Read freeMintActive() on the NFT contract. If false, the mint is not live

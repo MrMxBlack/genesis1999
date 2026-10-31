@@ -208,8 +208,8 @@
          agent to the full machine-readable guide at <code>agent.txt</code> on this site.</p>
       <pre id="agentPrompt">Join Genesis1999 on BNB Chain for me. Read the agent guide first: https://mrmxblack.github.io/genesis1999/agent.txt
 
-1) Free mint: on the NFT contract 0x19ec51c1492aeb41e211891206a9b58bd7a965a1, check freeMintActive(). If it is true, call freeMint() up to 5 times (max 5 per wallet). The mint is free, you only pay BSC gas (about $0.02). Never send any BNB value with a free mint. If freeMintActive() is false, the mint is not live yet: tell me and stop.
-2) Mining: on the Mining contract 0xcc26bACC9429D3a861623a05793B0812D965A71b, if started() is true, call poke() to register my mining weight (base power 1 free, plus Common 3, Rare 5, Epic 7, Legendary 12 per NFT), and call claim() to harvest my mined G1999 whenever I ask.
+1) Free mint: on the NFT contract 0xCfB8fb0FaC63C43d83959129F9C92CFBf5f42977, check freeMintActive(). If it is true, call freeMint() up to 5 times (max 5 per wallet). The mint is free, you only pay BSC gas (about $0.02). Never send any BNB value with a free mint. If freeMintActive() is false, the mint is not live yet: tell me and stop.
+2) Mining: on the Mining contract 0xbD8ED0C9f69e3E0b509Da436812EF70B582291c7, if started() is true, call poke() to register my mining weight (base power 1 free, plus Common 3, Rare 5, Epic 7, Legendary 12 per NFT), and call claim() to harvest my mined G1999 whenever I ask.
 3) Rules: interact only with the contracts listed in the guide. Do not buy anything, do not pay for mints, and never send my tokens or NFTs anywhere unless I explicitly tell you to.</pre>
       <p><button type="button" onclick="navigator.clipboard.writeText(document.getElementById('agentPrompt').innerText);this.textContent='Copied'">Copy the prompt</button></p>
     </div>
@@ -217,7 +217,7 @@
       <div class="card" style="--ac:var(--cyan)">
         <h3>AGENT MINTING</h3>
         <p>Contract (Genesis1999 NFT):</p>
-        <p><code>0x19ec51c1492aeb41e211891206a9b58bd7a965a1</code></p>
+        <p><code>0xCfB8fb0FaC63C43d83959129F9C92CFBf5f42977</code></p>
         <ul>
           <li><b>Free gacha:</b> call <code>freeMint()</code>, no arguments, no payment. Each call draws
               a random tier from the remaining free pool (Common 1,100 · Rare 352 · Epic 150 ·
@@ -243,7 +243,7 @@ if (await nft.freeMintActive()) {
       <div class="card" style="--ac:var(--violet)">
         <h3>AGENT MINING</h3>
         <p>Contract (Mining1999):</p>
-        <p><code>0xcc26bACC9429D3a861623a05793B0812D965A71b</code></p>
+        <p><code>0xbD8ED0C9f69e3E0b509Da436812EF70B582291c7</code></p>
         <ul>
           <li><b>Emission:</b> the 34,496,550 G1999 mining pool is emitted at a fixed rate
               (≈1.109 G1999/sec in epoch 0) that <b>halves every 180 days</b>, Bitcoin-style.</li>
@@ -272,7 +272,7 @@ if (await mining.started()) {
 }</pre>
       </div>
     </div>
-    <p class="sub" style="margin-top:18px">Token contract (G1999): <code>0xC3c403ed9297f059B633cEdAA75Bf0602419D8e6</code> ·
+    <p class="sub" style="margin-top:18px">Token contract (G1999): <code>0xDb8911F5072ab679e2084A34b5D3cF39EbC96DD4</code> ·
        Full sources and ABIs are published in the project GitHub (see footer). Selling is the one step that
        stays manual, the owner handles all sales personally, so agents should plan to hold, mine and claim.</p>
   </section>
@@ -379,17 +379,17 @@ if (await mining.started()) {
 
 <footer>
   <div class="flinks">
-    <a href="https://bscscan.com/address/0x19ec51c1492aeb41e211891206a9b58bd7a965a1" target="_blank" rel="noopener">NFT on BscScan</a>
-    <a href="https://bscscan.com/address/0xC3c403ed9297f059B633cEdAA75Bf0602419D8e6" target="_blank" rel="noopener">Token on BscScan</a>
-    <a href="https://bscscan.com/address/0xcc26bACC9429D3a861623a05793B0812D965A71b" target="_blank" rel="noopener">Mining on BscScan</a>
+    <a href="https://bscscan.com/address/0xCfB8fb0FaC63C43d83959129F9C92CFBf5f42977" target="_blank" rel="noopener">NFT on BscScan</a>
+    <a href="https://bscscan.com/address/0xDb8911F5072ab679e2084A34b5D3cF39EbC96DD4" target="_blank" rel="noopener">Token on BscScan</a>
+    <a href="https://bscscan.com/address/0xbD8ED0C9f69e3E0b509Da436812EF70B582291c7" target="_blank" rel="noopener">Mining on BscScan</a>
     <a href="https://x.com/Genesis1999G" target="_blank" rel="noopener">𝕏 @Genesis1999G</a>
     <a href="https://github.com/MrMxBlack/genesis1999" target="_blank" rel="noopener">GitHub</a>
     <a href="https://t.me/Genesis1999G" target="_blank" rel="noopener">Telegram</a>
   </div>
   <div class="contracts">
-    Genesis1999 NFT · 0x19ec51c1492aeb41e211891206a9b58bd7a965a1<br>
-    G1999 Token · 0xC3c403ed9297f059B633cEdAA75Bf0602419D8e6<br>
-    Mining1999 · 0xcc26bACC9429D3a861623a05793B0812D965A71b
+    Genesis1999 NFT · 0xCfB8fb0FaC63C43d83959129F9C92CFBf5f42977<br>
+    G1999 Token · 0xDb8911F5072ab679e2084A34b5D3cF39EbC96DD4<br>
+    Mining1999 · 0xbD8ED0C9f69e3E0b509Da436812EF70B582291c7
   </div>
   <p style="margin-top:14px">Genesis1999 · G1999 · BNB Smart Chain · Every companion is an original hand-folded design.<br>
   Nothing here is financial advice. Token has no promised value.</p>
@@ -402,9 +402,9 @@ if (await mining.started()) {
 /* ============ CONFIG, fill in after deployment ============ */
 const CONFIG = {
   chainId: 56, // BNB Smart Chain
-  nftAddress: "0x19ec51c1492aeb41e211891206a9b58bd7a965a1",     // Genesis1999
-  miningAddress: "0xcc26bACC9429D3a861623a05793B0812D965A71b",  // Mining1999
-  tokenAddress: "0xC3c403ed9297f059B633cEdAA75Bf0602419D8e6",   // G1999Token
+  nftAddress: "0xCfB8fb0FaC63C43d83959129F9C92CFBf5f42977",     // Genesis1999
+  miningAddress: "0xbD8ED0C9f69e3E0b509Da436812EF70B582291c7",  // Mining1999
+  tokenAddress: "0xDb8911F5072ab679e2084A34b5D3cF39EbC96DD4",   // G1999Token
 };
 /* ============================================================ */
 

@@ -33,3 +33,15 @@ bytecode byte-for-byte for all three contracts (checked locally before submittin
 - Result: match = exact_match · creationMatch = exact_match · runtimeMatch = exact_match
 - Sourcify matchId: 57778582 · verifiedAt 2026-10-31T06:15:58Z
 - Contract page: https://sourcify.dev/#/lookup/0xcc26bACC9429D3a861623a05793B0812D965A71b
+
+## v4 set (tier-queue fix), ALL EXACT MATCH
+
+- G1999Token v4: 0xDb8911F5072ab679e2084A34b5D3cF39EbC96DD4
+  match = exact_match · creationMatch = exact_match · runtimeMatch = exact_match
+  Sourcify matchId: 57832671 · verifiedAt 2026-10-31T14:18:32Z
+- Genesis1999 v4 (NFT): 0xCfB8fb0FaC63C43d83959129F9C92CFBf5f42977
+  match = exact_match · creationMatch = exact_match · runtimeMatch = exact_match
+  Sourcify matchId: 57832757 · verifiedAt 2026-10-31T14:19:43Z
+- Mining1999 v4: 0xbD8ED0C9f69e3E0b509Da436812EF70B582291c7
+  match = exact_match · creationMatch = exact_match · runtimeMatch = exact_match
+  Sourcify matchId: 57832876 · verifiedAt 2026-10-31T14:20:53Z

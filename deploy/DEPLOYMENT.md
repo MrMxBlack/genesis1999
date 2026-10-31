@@ -64,3 +64,28 @@ deployed at nonce 0/1:
   (v2 mining still holds its 34,496,550 v2 tokens, dead tokens, no rescue path
   by design). Canonical set is now: NFT 0x19ec51c1492aeb41e211891206a9b58bd7a965a1 ·
   Token v3 · Mining v3.
+
+## v4 redeploy (2026-10-31), CANONICAL — tier-queue fix
+
+A pre-launch review found the flaw: metadata/art assign each tokenId a FIXED tier, but
+the v3 NFT assigned tier randomly at mint, so chain tier (mining weight, airdrop) would
+have mismatched the art. The v4 NFT draws tokenIds from precomputed queues bound to the
+metadata tiers (deploy/queues.json, deploy/QUEUES.md, deploy/V4-CHANGES.md; local suite
+100/100). Mining1999's immutable NFT pointer and the token pool inside the old mining
+contract forced a full-set redeploy. Deployer EOA #4 (0x760B7c6eEa1b61470E52E737C49Fb30b9f63ec79,
+funded 0.00055 BNB from mee.ai, tx 0x3cfb78a3cd9a6b29bfc8d218b62949ec085d3a21a9b6c800deb9b4a77bd0c0de;
+leftover 0.000176 BNB swept back, tx 0x561fccafaacd198de2079f43855e88c9fdce2e06ca6abbeb542b9d002c05a23d;
+deployer balance 0 afterwards, key shredded), nonces 0/1/2:
+
+- **G1999Token v4: 0xDb8911F5072ab679e2084A34b5D3cF39EbC96DD4** (tx 0xb6ae04500d267ac77de5968387f300dc9f0efb7f3a53e249f70754547075fdb9, gasUsed 734,311)
+  - mining vault = predicted Mining1999 v4 address; 34,496,550 pool allocated at creation (verified).
+- **Genesis1999 v4 (NFT): 0xCfB8fb0FaC63C43d83959129F9C92CFBf5f42977** (tx 0x5bd6fe65c4da979b806f625806d01cfa17d5056470350a89240e34d8d3daaa16, gasUsed 5,202,716)
+  - On-chain verified at deploy: tierOf samples match metadata tiers; freeRemaining
+    1100/352/150/39; saleRemaining 68/75/100; teamRemaining 30/25/15; miningRemaining 45;
+    totalMinted 0; freeMintActive = false, saleActive = false.
+- **Mining1999 v4: 0xbD8ED0C9f69e3E0b509Da436812EF70B582291c7** (tx 0xee57a293127fdc456c108e70f219b81cc146c951e66fd12e86f9b165c600e4f7, gasUsed 1,430,174)
+  - Defaults verified in source: ladder [3,5,7,12], baseWeight 1, usdPerPower 40,000,000.
+- All three owned by mee.ai (transfers 0xcfa44722…, 0x3ee2b3c4…, 0x36a7ecd6…).
+  mee.ai holds 65,493,450 G1999 v4; total supply 99,990,000.
+- v3 set (token 0xC3c403ed…, NFT 0x19ec51c1…, mining 0xcc26bACC…) is SUPERSEDED/inert.
+  Canonical set is now the v4 set above.
