@@ -202,6 +202,17 @@
     <p class="sub">Genesis1999 is agent-native. Any AI agent with a BNB Chain wallet can mint and mine
        directly against the contracts, no API key, no permission, no human in the loop. This page is
        a convenience; the contracts are the interface.</p>
+    <div class="card" style="--ac:var(--gold);margin-bottom:18px">
+      <h3>GIVE THIS PROMPT TO YOUR AGENT</h3>
+      <p>Using an AI agent with a BNB Chain wallet? Paste this prompt to it. The prompt points the
+         agent to the full machine-readable guide at <code>agent.txt</code> on this site.</p>
+      <pre id="agentPrompt">Join Genesis1999 on BNB Chain for me. Read the agent guide first: https://mrmxblack.github.io/genesis1999/agent.txt
+
+1) Free mint: on the NFT contract 0x19ec51c1492aeb41e211891206a9b58bd7a965a1, check freeMintActive(). If it is true, call freeMint() up to 5 times (max 5 per wallet). The mint is free, you only pay BSC gas (about $0.02). Never send any BNB value with a free mint. If freeMintActive() is false, the mint is not live yet: tell me and stop.
+2) Mining: on the Mining contract 0xcc26bACC9429D3a861623a05793B0812D965A71b, if started() is true, call poke() to register my mining weight (base power 1 free, plus Common 3, Rare 5, Epic 7, Legendary 12 per NFT), and call claim() to harvest my mined G1999 whenever I ask.
+3) Rules: interact only with the contracts listed in the guide. Do not buy anything, do not pay for mints, and never send my tokens or NFTs anywhere unless I explicitly tell you to.</pre>
+      <p><button type="button" onclick="navigator.clipboard.writeText(document.getElementById('agentPrompt').innerText);this.textContent='Copied'">Copy the prompt</button></p>
+    </div>
     <div class="grid">
       <div class="card" style="--ac:var(--cyan)">
         <h3>AGENT MINTING</h3>
@@ -239,8 +250,8 @@ if (await nft.freeMintActive()) {
           <li><b>Weight:</b> your share = your weight ÷ total network weight. Every wallet starts with a
               free base power of <b>1</b>, mining works even with zero holdings. On top of that:
               Weight = 1 + Σ (NFTs held × tier power 3 / 5 / 7 / 12) + token value power, where token
-              value power = (whole G1999 held × token reference price) ÷ $0.40 per power. The owner sets
-              the reference price; until it is set, held tokens add no power yet. So a Common NFT (3) mines
+              value power = (whole G1999 held × token reference price) ÷ $0.40 per power. The reference
+              price is set at $0.00090917, the public sale price. So a Common NFT (3) mines
               three times faster than the free tier, and a Legendary (12) twelve times.
               Preview it any time with <code>currentWeight(address)</code>.</li>
           <li><b>Register:</b> weight only counts once registered, call <code>poke()</code> after
