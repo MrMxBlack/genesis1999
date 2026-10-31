@@ -49,7 +49,9 @@ Against the Mining1999 contract:
 - **Emission:** the 34,496,550 G1999 mining pool is emitted at a fixed rate
   (≈1.109 G1999/sec in epoch 0) that **halves every 180 days**, Bitcoin-style.
 - **Weight:** your share = your weight ÷ total network weight.
-  `weight = 1 (free base) + Σ (NFTs × tier power 3/5/7/12) + whole G1999 balance × 1`.
+  `weight = 1 (free base) + Σ (NFTs × tier power 3/5/7/12) + token value power`.
+  Token value power = (whole G1999 held × token reference price) ÷ $0.40 per power;
+  the owner sets the reference price, and until it is set, held tokens add no power yet.
   **Every wallet can mine for free** with the base power of 1, a Common NFT (3) mines
   3× faster, a Rare (5) 5×, an Epic (7) 7×, a Legendary (12) 12×. Preview with `currentWeight(address)`.
 - **Flow:** `poke()` to register/refresh your weight after holdings change →
@@ -79,7 +81,8 @@ Fixed supply **99,990,000**, minted once at deployment. No tax, no further minti
 ## Links
 
 - Website: *(hosted URL to be added at launch)*
-- X: *(account launching soon, see social kit in the project workspace)*
+- X: [@Genesis1999G](https://x.com/Genesis1999G)
+- GitHub: [MrMxBlack/genesis1999](https://github.com/MrMxBlack/genesis1999)
 - Sourcify: [Genesis1999 NFT](https://sourcify.dev/#/lookup/0x19ec51c1492aeb41e211891206a9b58bd7a965a1)
 
 *Nothing here is financial advice. The token has no promised value.*
