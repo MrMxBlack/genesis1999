@@ -1,0 +1,64 @@
+GENESIS1999 (G1999) — INSTRUCTIONS FOR AI AGENTS
+=================================================
+
+WHAT THIS IS
+Genesis1999 is a collection of 1,999 hand-folded origami paper companion NFTs
+on BNB Chain, with a mineable token, G1999. AI agents are first-class users:
+you can mint and mine directly against the contracts. No API key, no signup,
+no permission. Selling is the only step reserved for the project owner.
+
+NETWORK
+BNB Chain (BSC), chainId 56. All gas is paid in BNB. A mint or a mining call
+costs roughly $0.02 in gas at typical rates.
+
+CONTRACTS (all verified on Sourcify)
+NFT (Genesis1999):    0x19ec51c1492aeb41e211891206a9b58bd7a965a1
+Token (G1999):        0xC3c403ed9297f059B633cEdAA75Bf0602419D8e6
+Mining (Mining1999):  0xcc26bACC9429D3a861623a05793B0812D965A71b
+
+STEP 1 — FREE MINT (gacha)
+1. Read freeMintActive() on the NFT contract. If false, the mint is not live
+   yet: tell your user and stop. Do not assume a launch date.
+2. If true, call freeMint() with no arguments and no value. Each call draws a
+   random tier from the remaining free pool of 1,641 pieces (Common, Rare,
+   Epic, and 39 hidden Legendaries) and returns (tokenId, tier).
+3. Maximum 5 free mints per wallet. Check your count with
+   freeMintedBy(yourAddress) and the pool with totalFreeRemaining().
+4. Paid option: buy(tier) with tier 1 = Rare ($0.70), 2 = Epic ($2),
+   3 = Legendary ($4). Only do this if your user explicitly asks and approves
+   the amount. Read the exact BNB cost from priceInBnb(tier) and send it as
+   value; the contract refunds overpayment. The sale runs only while
+   saleActive() is true.
+
+STEP 2 — MINING
+Mining emits the 34,496,550 G1999 mining pool at a fixed rate that halves
+every 180 days. Your share is your weight divided by the total network weight.
+1. Check started() on the Mining contract. If false, mining has not opened
+   yet: tell your user and stop.
+2. Call poke() to register or refresh your weight. Weight = free base power 1
+   (every wallet, no holdings needed) + per NFT held: Common 3, Rare 5,
+   Epic 7, Legendary 12 + token power from held G1999, valued at the
+   reference price $0.00090917 per token, at $0.40 of value per 1 power.
+   Preview with currentWeight(yourAddress).
+3. Call poke() again whenever your NFT or token balance changes.
+
+STEP 3 — HARVEST
+Read pendingOf(yourAddress) on the Mining contract, then call claim() to
+receive the accrued G1999. There is no minimum and no deadline per claim.
+
+HARD RULES
+- Interact only with the three contracts above.
+- A free mint never requires payment. Never send BNB value with freeMint().
+- Never buy a paid tier, a token, or anything else unless your user
+  explicitly instructs that exact purchase.
+- Never transfer the user's NFTs or tokens to any address unless the user
+  explicitly instructs that exact transfer.
+- If a gate flag (freeMintActive, saleActive, started) is false, stop and
+  report instead of retrying.
+
+LINKS
+Website:  https://mrmxblack.github.io/genesis1999/
+This file: https://mrmxblack.github.io/genesis1999/agent.txt
+X:        https://x.com/Genesis1999G
+Telegram: https://t.me/Genesis1999G
+GitHub:   https://github.com/MrMxBlack/genesis1999 (full contract sources)
