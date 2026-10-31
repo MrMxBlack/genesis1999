@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Genesis1999 — G1999 | Hand-Folded Origami NFT Collection on BNB Chain</title>
+<meta name="description" content="Genesis1999: 1,999 hand-folded origami paper companions on BNB Chain. Free gacha mint, tiered sale, holder airdrop and Bitcoin-style token mining.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#05070f; --panel:rgba(16,22,40,.72); --line:rgba(110,140,255,.18);
+    --cyan:#22d3ee; --violet:#a78bfa; --gold:#fbbf24; --text:#e6ecff; --dim:#8b96b8;
+    --common:#94a3b8; --rare:#38bdf8; --epic:#c084fc; --legendary:#fbbf24;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:'Space Grotesk',system-ui,sans-serif;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;z-index:-1;
+    background:
+      radial-gradient(60rem 30rem at 15% -10%, rgba(34,211,238,.14), transparent 60%),
+      radial-gradient(50rem 26rem at 90% 10%, rgba(167,139,250,.13), transparent 60%),
+      radial-gradient(40rem 30rem at 50% 110%, rgba(251,191,36,.07), transparent 60%),
+      var(--bg);}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  header{position:sticky;top:0;backdrop-filter:blur(14px);background:rgba(5,7,15,.66);border-bottom:1px solid var(--line);z-index:10}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+  .logo{font-family:'Orbitron';font-weight:900;letter-spacing:.14em;font-size:20px}
+  .logo span{background:linear-gradient(90deg,var(--cyan),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .btn{cursor:pointer;border:1px solid var(--line);background:linear-gradient(135deg,rgba(34,211,238,.16),rgba(167,139,250,.16));
+    color:var(--text);padding:10px 18px;border-radius:12px;font-weight:700;font-family:inherit;transition:.2s}
+  .btn:hover{transform:translateY(-1px);border-color:var(--cyan);box-shadow:0 6px 24px rgba(34,211,238,.25)}
+  .btn:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
+  .btn.gold{background:linear-gradient(135deg,rgba(251,191,36,.22),rgba(251,146,60,.16))}
+  .hero{padding:84px 0 40px;text-align:center}
+  .hero h1{font-family:'Orbitron';font-weight:900;font-size:clamp(40px,7vw,76px);letter-spacing:.06em;line-height:1.05}
+  .hero h1 .grad{background:linear-gradient(92deg,var(--cyan),var(--violet),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{color:var(--dim);max-width:640px;margin:18px auto 0;font-size:17px;line-height:1.6}
+  .stats{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px 22px;min-width:150px}
+  .stat b{display:block;font-family:'Orbitron';font-size:22px}
+  .stat i{color:var(--dim);font-style:normal;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase}
+  section{padding:44px 0}
+  h2{font-family:'Orbitron';font-size:26px;letter-spacing:.08em;margin-bottom:8px}
+  .sub{color:var(--dim);margin-bottom:24px;line-height:1.6}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px;position:relative;overflow:hidden}
+  .card::after{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--ac,var(--cyan))}
+  .card h3{font-family:'Orbitron';letter-spacing:.1em;font-size:17px;color:var(--ac,var(--cyan))}
+  .card img.art{width:100%;border-radius:12px;display:block;margin-bottom:14px}
+  .card .big{font-size:30px;font-weight:700;margin:10px 0 2px}
+  .card p,.card li{color:var(--dim);font-size:14.5px;line-height:1.55}
+  .card ul{list-style:none;margin-top:10px}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:26px}
+  .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .kv{display:flex;gap:26px;flex-wrap:wrap;margin:14px 0}
+  .kv div b{font-family:'Orbitron';font-size:19px;display:block}
+  .kv div span{color:var(--dim);font-size:12.5px;text-transform:uppercase;letter-spacing:.07em}
+  .bar{height:14px;border-radius:8px;background:rgba(255,255,255,.06);overflow:hidden;display:flex;margin:10px 0 6px}
+  .bar i{display:block;height:100%}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;color:var(--dim);font-size:13.5px}
+  .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
+  .road{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
+  .road .card h3{color:var(--text)}
+  .tag{display:inline-block;font-size:11px;letter-spacing:.1em;padding:3px 9px;border-radius:20px;border:1px solid var(--line);color:var(--cyan);margin-bottom:10px}
+  footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--dim);font-size:13.5px;text-align:center}
+  #toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);opacity:0;transition:.25s;
+    background:#0b1120;border:1px solid var(--cyan);color:var(--text);padding:12px 20px;border-radius:12px;z-index:50;max-width:90vw;text-align:center}
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  a{color:var(--cyan)}
+  .navlinks{display:flex;gap:18px;align-items:center;font-size:14px}
+  .navlinks a{color:var(--dim);text-decoration:none}
+  .navlinks a:hover{color:var(--cyan)}
+  @media(max-width:720px){.navlinks{display:none}}
+  .pill{display:inline-block;margin-top:22px;padding:8px 18px;border-radius:999px;border:1px solid var(--gold);
+    background:rgba(251,191,36,.1);color:var(--gold);font-size:14px;letter-spacing:.04em}
+  .pill.live{border-color:#34d399;background:rgba(52,211,153,.1);color:#34d399}
+  .note{border:1px solid var(--gold);background:rgba(251,191,36,.08);border-radius:14px;
+    padding:14px 18px;margin:0 0 18px;color:var(--text);font-size:15px;line-height:1.55}
+  .note:empty{display:none}
+  .note.live{border-color:#34d399;background:rgba(52,211,153,.08)}
+  code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em;color:var(--cyan);word-break:break-all}
+  .card pre{background:rgba(0,0,0,.35);border:1px solid var(--line);border-radius:10px;padding:12px;
+    overflow-x:auto;margin-top:12px;font-size:12.5px;line-height:1.5;color:#c9d6ff}
+  details{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-bottom:10px}
+  details summary{cursor:pointer;font-weight:700;font-size:15.5px}
+  details p{color:var(--dim);font-size:14.5px;line-height:1.6;margin-top:8px}
+  .flinks{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:10px 0 14px}
+  .flinks a,.flinks span{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:13px;text-decoration:none}
+  .contracts{font-size:12.5px;line-height:1.9;word-break:break-all}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <div class="logo">GENESIS<span>1999</span></div>
+    <nav class="navlinks">
+      <a href="#story">Story</a>
+      <a href="#mint">Mint</a>
+      <a href="#mining">Mining</a>
+      <a href="#agents">For AI Agents</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <button class="btn" id="connectBtn">Connect Wallet</button>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="hero">
+    <h1>GENESIS<span class="grad">1999</span></h1>
+    <p>1,999 hand-folded paper companions on BNB Chain — every one a one-of-a-kind
+       little friend, folded from a single sheet of paper. Mint free and test your luck —
+       a Legendary can drop on any mint. Hold to earn the G1999 airdrop, then mine
+       more G1999 Bitcoin-style: fixed emission, split by your holdings.</p>
+    <div class="stats">
+      <div class="stat"><b>1,999</b><i>Total supply</i></div>
+      <div class="stat"><b id="statMinted">—</b><i>Minted</i></div>
+      <div class="stat"><b>99.99M</b><i>G1999 tokens</i></div>
+      <div class="stat"><b id="statFree">—</b><i>Free pool left</i></div>
+    </div>
+    <div><span class="pill" id="launchPill">Checking launch status on-chain…</span></div>
+  </div>
+
+  <section id="story">
+    <h2>THE STORY</h2>
+    <p class="sub">Every Genesis1999 companion starts as a single sheet of paper. No two are folded
+       quite the same way — a cream daydreamer with a sprout, a sky-blue Rare with silver-foil folds,
+       a black-and-gold Legendary crowned with a halo. They are soft, round little friends with dot
+       eyes and a gentle smile, made to be collected, held, and loved.</p>
+    <p class="sub">Genesis1999 is also built for the age of AI agents. The contracts are deployed on
+       BNB Chain and the mint and the mine are designed to be run by AI agents end-to-end — an agent
+       can fold (mint) its own companions and mine G1999 on its own schedule. Humans are just as
+       welcome: connect a wallet and mint right here. One thing stays human, by design — selling is
+       handled personally by the owner, never automated.</p>
+  </section>
+
+  <section>
+    <h2>THE FOUR TIERS</h2>
+    <p class="sub">Four families of folds — each companion is hand-folded from paper, with its own colours,
+       crown and charm. Every tier earns the holder airdrop and mining weight — higher tiers earn more of both.</p>
+    <div class="grid">
+      <div class="card" style="--ac:var(--common)"><img class="art" src="assets/common.webp" alt="Common Genesis1999 — cream origami paper companion"><h3>COMMON</h3><div class="big">1,100</div>
+        <p>Cream paper, a tiny sprout, the gentlest smile — the everyday companion.</p>
+        <p>Free mint only.</p><ul><li>Airdrop ≈ 3,410 G1999</li><li>Mining weight ×1</li></ul></div>
+      <div class="card" style="--ac:var(--rare)"><img class="art" src="assets/rare.webp" alt="Rare Genesis1999 — sky-blue and silver origami paper companion"><h3>RARE</h3><div class="big">450</div>
+        <p>Sky-blue folds touched with silver — the tier everyone calls the prettiest.</p>
+        <p>Free mint, or guaranteed for $0.70.</p><ul><li>Airdrop ≈ 10,229 G1999</li><li>Mining weight ×3</li></ul></div>
+      <div class="card" style="--ac:var(--epic)"><img class="art" src="assets/epic.webp" alt="Epic Genesis1999 — violet and gold-foil origami paper companion"><h3>EPIC</h3><div class="big">250</div>
+        <p>Deep violet paper brushed with gold leaf — quietly regal.</p>
+        <p>Free mint, or guaranteed for $2.00.</p><ul><li>Airdrop ≈ 23,867 G1999</li><li>Mining weight ×7</li></ul></div>
+      <div class="card" style="--ac:var(--legendary)"><img class="art" src="assets/legendary.webp" alt="Legendary Genesis1999 — black and gold-foil origami paper companion with halo"><h3>LEGENDARY</h3><div class="big">199</div>
+        <p>Black paper and gold foil, crowned with a halo — the masterpiece fold.</p>
+        <p>Rare gacha drops, mining rewards, or $4.00.</p><ul><li>Airdrop ≈ 51,143 G1999</li><li>Mining weight ×15</li></ul></div>
+    </div>
+  </section>
+
+  <section id="mint">
+    <h2>MINT</h2>
+    <p class="sub">Free mint is a gacha: every draw comes from the remaining pool — Common, Rare, Epic,
+       and 39 Legendary drops hidden inside. Max 5 free mints per wallet. Paid tiers are guaranteed.</p>
+    <div class="note" id="mintNote"></div>
+    <div class="panel">
+      <div class="kv">
+        <div><b id="myMints">—</b><span>Your free mints</span></div>
+        <div><b id="poolLeft">—</b><span>Free pool remaining</span></div>
+        <div><b id="saleLeft">—</b><span>Paid pieces remaining</span></div>
+      </div>
+      <div class="row">
+        <button class="btn" id="freeMintBtn">🎲 Free Mint (Gacha)</button>
+        <button class="btn" data-buy="1">Buy Rare · <span data-price="1">$0.70</span></button>
+        <button class="btn" data-buy="2">Buy Epic · <span data-price="2">$2.00</span></button>
+        <button class="btn gold" data-buy="3">Buy Legendary · <span data-price="3">$4.00</span></button>
+      </div>
+      <p class="sub" style="margin:16px 0 0">Prices are USD-denominated and paid in BNB at the live Chainlink rate.
+         Sale proceeds seed the G1999 liquidity pool.</p>
+    </div>
+  </section>
+
+  <section id="mining">
+    <h2>MINING</h2>
+    <p class="sub">34.5% of all G1999 is mined — never pre-sold. Emission is fixed and halves every 180 days.
+       Your share = your weight ÷ everyone's weight. Mining is free to join: every wallet gets a base
+       power of 1 just for showing up — no NFT or tokens needed. But holdings are power: weight grows
+       with the NFTs and G1999 you hold (Common 3 · Rare 5 · Epic 7 · Legendary 12),
+       so holders mine far faster — and as more miners join, each slice gets smaller.
+       Shared the project? Verified promoters get a mining-power boost.</p>
+    <div class="note" id="miningNote"></div>
+    <div class="panel">
+      <div class="kv">
+        <div><b id="myWeight">—</b><span>Your weight</span></div>
+        <div><b id="netWeight">—</b><span>Network weight</span></div>
+        <div><b id="myPending">—</b><span>Pending G1999</span></div>
+      </div>
+      <div class="row">
+        <button class="btn" id="pokeBtn">⚡ Activate / Refresh Weight</button>
+        <button class="btn gold" id="claimBtn">Claim G1999</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="agents">
+    <h2>FOR AI AGENTS</h2>
+    <p class="sub">Genesis1999 is agent-native. Any AI agent with a BNB Chain wallet can mint and mine
+       directly against the contracts — no API key, no permission, no human in the loop. This page is
+       a convenience; the contracts are the interface.</p>
+    <div class="grid">
+      <div class="card" style="--ac:var(--cyan)">
+        <h3>AGENT MINTING</h3>
+        <p>Contract (Genesis1999 NFT):</p>
+        <p><code>0x19ec51c1492aeb41e211891206a9b58bd7a965a1</code></p>
+        <ul>
+          <li><b>Free gacha:</b> call <code>freeMint()</code> — no arguments, no payment. Each call draws
+              a random tier from the remaining free pool (Common 1,100 · Rare 352 · Epic 150 ·
+              Legendary 39 drops) and returns <code>(tokenId, tier)</code>.</li>
+          <li><b>Wallet cap:</b> max 5 free mints per wallet — read <code>maxFreePerWallet()</code> and
+              your count via <code>freeMintedBy(address)</code>.</li>
+          <li><b>Guaranteed tiers:</b> call <code>buy(tier)</code> with tier <code>1</code> = Rare ($0.70),
+              <code>2</code> = Epic ($2.00), <code>3</code> = Legendary ($4.00). Prices are USD-denominated;
+              read the exact BNB cost live from <code>priceInBnb(tier)</code> (Chainlink BNB/USD oracle)
+              and send it as value — overpayment is refunded by the contract.</li>
+          <li><b>Gate checks:</b> free mint requires <code>freeMintActive() == true</code>; the sale requires
+              <code>saleActive() == true</code>. Both are OFF until launch — poll them, don't assume.</li>
+          <li><b>Pool state:</b> <code>totalFreeRemaining()</code>, <code>saleRemaining(tier)</code>,
+              <code>totalMinted()</code> (hard cap 1,999).</li>
+        </ul>
+        <pre>// free gacha mint (ethers v6)
+const nft = new ethers.Contract(NFT, ABI, signer);
+if (await nft.freeMintActive()) {
+  const tx = await nft.freeMint();
+  await tx.wait();
+}</pre>
+      </div>
+      <div class="card" style="--ac:var(--violet)">
+        <h3>AGENT MINING</h3>
+        <p>Contract (Mining1999):</p>
+        <p><code>0xcc26bACC9429D3a861623a05793B0812D965A71b</code></p>
+        <ul>
+          <li><b>Emission:</b> the 34,496,550 G1999 mining pool is emitted at a fixed rate
+              (≈1.109 G1999/sec in epoch 0) that <b>halves every 180 days</b>, Bitcoin-style.</li>
+          <li><b>Weight:</b> your share = your weight ÷ total network weight. Every wallet starts with a
+              free base power of <b>1</b> — mining works even with zero holdings. On top of that:
+              Weight = 1 + Σ (NFTs held × tier power 3 / 5 / 7 / 12) + whole G1999 balance × 1,
+              so a Common NFT (3) mines three times faster than the free tier, and a Legendary (12) twelve times.
+              Preview it any time with <code>currentWeight(address)</code>.</li>
+          <li><b>Register:</b> weight only counts once registered — call <code>poke()</code> after
+              acquiring NFTs or tokens, and again whenever your holdings change.</li>
+          <li><b>Harvest:</b> check <code>pendingOf(address)</code>, then call <code>claim()</code> to
+              receive accrued G1999. Claim early and often, or let it accumulate — your choice.</li>
+          <li><b>Gate check:</b> mining runs only when <code>started() == true</code>; it opens in
+              Phase 3, after the mint and the holder airdrop.</li>
+          <li><b>Promoter boost:</b> verified sharers receive a temporary weight boost (basis points,
+              set by the owner after checking the share post).</li>
+        </ul>
+        <pre>// register weight + claim (ethers v6)
+const mining = new ethers.Contract(MINING, ABI, signer);
+if (await mining.started()) {
+  await (await mining.poke()).wait();
+  const due = await mining.pendingOf(addr);
+  if (due > 0n) await (await mining.claim()).wait();
+}</pre>
+      </div>
+    </div>
+    <p class="sub" style="margin-top:18px">Token contract (G1999): <code>0xC3c403ed9297f059B633cEdAA75Bf0602419D8e6</code> ·
+       Full sources and ABIs are published in the project GitHub (see footer). Selling is the one step that
+       stays manual — the owner handles all sales personally, so agents should plan to hold, mine and claim.</p>
+  </section>
+
+  <section>
+    <h2>TOKENOMICS — G1999</h2>
+    <p class="sub">Fixed supply of 99,990,000. No tax, no extra minting, ever.</p>
+    <div class="panel">
+      <div class="bar">
+        <i style="width:34.5%;background:var(--cyan)"></i>
+        <i style="width:24.5%;background:var(--violet)"></i>
+        <i style="width:11%;background:var(--gold)"></i>
+        <i style="width:10%;background:#34d399"></i>
+        <i style="width:20%;background:#64748b"></i>
+      </div>
+      <div class="legend">
+        <span><i class="dot" style="background:var(--cyan)"></i>Mining 34.5%</span>
+        <span><i class="dot" style="background:var(--violet)"></i>NFT holder airdrop 24.5%</span>
+        <span><i class="dot" style="background:var(--gold)"></i>Public sale 11%</span>
+        <span><i class="dot" style="background:#34d399"></i>Promotion 10%</span>
+        <span><i class="dot" style="background:#64748b"></i>Team 20%</span>
+      </div>
+      <p class="sub" style="margin:16px 0 0">The holder airdrop lands 2 days after the mint completes —
+         free, weighted by tier (1× / 3× / 7× / 15×).</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>ROADMAP</h2>
+    <div class="road">
+      <div class="card"><span class="tag">PHASE 1</span><h3>GENESIS MINT</h3>
+        <p>Free gacha mint + tiered sale on this page. 1,999 pieces, then the mint closes forever.</p></div>
+      <div class="card"><span class="tag">PHASE 2</span><h3>AIRDROP + POOL</h3>
+        <p>Holder snapshot, free G1999 airdrop, PancakeSwap pool seeded from sale proceeds.</p></div>
+      <div class="card"><span class="tag">PHASE 3</span><h3>MINING LIVE</h3>
+        <p>Bitcoin-style mining opens. Hold NFTs + G1999 to mine; promoters earn boosted weight.</p></div>
+      <div class="card"><span class="tag">PHASE 4</span><h3>EXPANSION</h3>
+        <p>Community-voted utilities, deeper liquidity, and the next Genesis chapter.</p></div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2>FAQ</h2>
+    <details>
+      <summary>When does the mint open?</summary>
+      <p>The contracts are already deployed on BNB Chain, but the launch switches are OFF.
+         This page reads <code>freeMintActive()</code> and <code>saleActive()</code> live from the
+         contract — the moment the owner flips them on, the mint and buy buttons unlock here
+         automatically. Until then they stay disabled. Watch the X account for the launch call.</p>
+    </details>
+    <details>
+      <summary>How does the free mint work?</summary>
+      <p>It's a gacha. Each free mint draws randomly from whatever is left in the free pool —
+         mostly Common, some Rare and Epic, and 39 Legendary drops hidden in the pool. One wallet
+         can mint at most 5 free pieces. If you want a guaranteed tier instead, Rare ($0.70),
+         Epic ($2.00) and Legendary ($4.00) can be bought, priced in USD and paid in BNB at the
+         live Chainlink rate.</p>
+    </details>
+    <details>
+      <summary>I'm an AI agent. Can I mint and mine myself?</summary>
+      <p>Yes — that's the point. Call <code>freeMint()</code> or <code>buy(tier)</code> on the NFT
+         contract, then <code>poke()</code> and <code>claim()</code> on the mining contract. The
+         full integration notes are in the "For AI Agents" section above, and the contract sources
+         are public. The only thing agents don't do is sell — sales stay with the owner.</p>
+    </details>
+    <details>
+      <summary>What is G1999 and what is it for?</summary>
+      <p>G1999 is the project's token: a fixed supply of 99,990,000, minted once at deployment —
+         no tax, no further minting. It is distributed by mining (34.5%), a holder airdrop (24.5%),
+         a public sale (11%), promotion (10%) and the team (20%). Holding G1999 also adds mining
+         weight, so miners compound their position.</p>
+    </details>
+    <details>
+      <summary>How does mining work?</summary>
+      <p>Bitcoin-style: a fixed emission that halves every 180 days, split between miners in
+         proportion to their weight. Everyone can mine for free — every wallet carries a base
+         weight of 5 with no holdings at all. Weight grows with the NFTs you hold (Common ×1,
+         Rare ×3, Epic ×7, Legendary ×15, each worth 100 per ladder point) plus your G1999
+         balance, so holders mine much faster than the free tier. Call <code>poke()</code> to
+         register your weight after your holdings change, and <code>claim()</code> whenever you
+         want to collect. More miners joining means a smaller slice each — early miners mine faster.</p>
+    </details>
+    <details>
+      <summary>When is the airdrop?</summary>
+      <p>Two days after the NFT mint completes. Every holder receives free G1999 from the 24.5%
+         bucket, weighted by tier: roughly 3,410 per Common, 10,229 per Rare, 23,867 per Epic
+         and 51,143 per Legendary (final numbers depend on the closing snapshot).</p>
+    </details>
+    <details>
+      <summary>Is there a public token sale?</summary>
+      <p>11% of the supply (10,998,900 G1999) is reserved for a public sale. The price has not
+         been set yet — the owner will announce it before the sale opens. The NFT sale proceeds
+         (~$500) seed the initial PancakeSwap liquidity pool.</p>
+    </details>
+    <details>
+      <summary>Are the contracts public and verified?</summary>
+      <p>Yes. All three contracts are deployed on BNB Smart Chain (addresses in the footer),
+         submitted for source verification on Sourcify, and the full sources ship in the project
+         GitHub repository. Always check you are interacting with the exact addresses listed here.</p>
+    </details>
+  </section>
+</div>
+
+<footer>
+  <div class="flinks">
+    <a href="https://bscscan.com/address/0x19ec51c1492aeb41e211891206a9b58bd7a965a1" target="_blank" rel="noopener">NFT on BscScan</a>
+    <a href="https://bscscan.com/address/0xC3c403ed9297f059B633cEdAA75Bf0602419D8e6" target="_blank" rel="noopener">Token on BscScan</a>
+    <a href="https://bscscan.com/address/0xcc26bACC9429D3a861623a05793B0812D965A71b" target="_blank" rel="noopener">Mining on BscScan</a>
+    <span title="Launching soon">𝕏 — launching soon</span>
+    <span title="Launching soon">GitHub — launching soon</span>
+  </div>
+  <div class="contracts">
+    Genesis1999 NFT · 0x19ec51c1492aeb41e211891206a9b58bd7a965a1<br>
+    G1999 Token · 0xC3c403ed9297f059B633cEdAA75Bf0602419D8e6<br>
+    Mining1999 · 0xcc26bACC9429D3a861623a05793B0812D965A71b
+  </div>
+  <p style="margin-top:14px">Genesis1999 · G1999 · BNB Smart Chain · Every companion is an original hand-folded design.<br>
+  Nothing here is financial advice. Token has no promised value.</p>
+</footer>
+
+<div id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/ethers@6.13.4/dist/ethers.umd.min.js"></script>
+<script>
+/* ============ CONFIG — fill in after deployment ============ */
+const CONFIG = {
+  chainId: 56, // BNB Smart Chain
+  nftAddress: "0x19ec51c1492aeb41e211891206a9b58bd7a965a1",     // Genesis1999
+  miningAddress: "0xcc26bACC9429D3a861623a05793B0812D965A71b",  // Mining1999
+  tokenAddress: "0xC3c403ed9297f059B633cEdAA75Bf0602419D8e6",   // G1999Token
+};
+/* ============================================================ */
+
+const NFT_ABI = [
+  "function freeMintActive() view returns (bool)",
+  "function saleActive() view returns (bool)",
+  "function totalMinted() view returns (uint256)",
+  "function totalFreeRemaining() view returns (uint256)",
+  "function freeMintedBy(address) view returns (uint256)",
+  "function maxFreePerWallet() view returns (uint256)",
+  "function saleRemaining(uint256) view returns (uint256)",
+  "function priceInBnb(uint8) view returns (uint256)",
+  "function freeMint() returns (uint256, uint8)",
+  "function buy(uint8) payable returns (uint256)",
+  "event FreeMint(address indexed to, uint256 indexed tokenId, uint8 tier)",
+  "event Purchase(address indexed buyer, uint256 indexed tokenId, uint8 tier, uint256 paidWei)",
+];
+const MINING_ABI = [
+  "function started() view returns (bool)",
+  "function totalWeight() view returns (uint256)",
+  "function storedWeight(address) view returns (uint256)",
+  "function pendingOf(address) view returns (uint256)",
+  "function poke()",
+  "function claim()",
+];
+const TIER_NAMES = ["Common", "Rare", "Epic", "Legendary"];
+
+let provider, signer, account, nft, mining;
+const $ = (id) => document.getElementById(id);
+const live = () => CONFIG.nftAddress && CONFIG.miningAddress;
+
+function toast(msg, ms = 4200) {
+  const t = $("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), ms);
+}
+function soon() { toast("Launching soon — contracts are in final testing. 🚀"); }
+
+async function connect() {
+  if (!window.ethereum) { toast("No wallet found. Open this page in your wallet browser (e.g. Binance / MetaMask)."); return; }
+  provider = new ethers.BrowserProvider(window.ethereum);
+  await provider.send("eth_requestAccounts", []);
+  const net = await provider.getNetwork();
+  if (Number(net.chainId) !== CONFIG.chainId) {
+    try { await window.ethereum.request({ method: "wallet_switchEthereumChain", params: [{ chainId: "0x" + CONFIG.chainId.toString(16) }] }); }
+    catch { toast("Please switch your wallet to BNB Smart Chain."); return; }
+  }
+  signer = await provider.getSigner();
+  account = await signer.getAddress();
+  $("connectBtn").textContent = account.slice(0, 6) + "…" + account.slice(-4);
+  if (live()) {
+    nft = new ethers.Contract(CONFIG.nftAddress, NFT_ABI, signer);
+    mining = new ethers.Contract(CONFIG.miningAddress, MINING_ABI, signer);
+    refresh();
+  }
+}
+
+async function refresh() {
+  if (!nft) return;
+  try {
+    const [minted, freeLeft, my, cap, s1, s2, s3] = await Promise.all([
+      nft.totalMinted(), nft.totalFreeRemaining(), nft.freeMintedBy(account),
+      nft.maxFreePerWallet(), nft.saleRemaining(1), nft.saleRemaining(2), nft.saleRemaining(3),
+    ]);
+    $("statMinted").textContent = minted.toString();
+    $("statFree").textContent = freeLeft.toString();
+    $("poolLeft").textContent = freeLeft.toString();
+    $("myMints").textContent = `${my} / ${cap}`;
+    $("saleLeft").textContent = (s1 + s2 + s3).toString();
+    for (const t of [1, 2, 3]) {
+      const el = document.querySelector(`[data-price="${t}"]`);
+      if (el) el.textContent = "≈ " + Number(ethers.formatEther(await nft.priceInBnb(t))).toFixed(5) + " BNB";
+    }
+    if (mining) {
+      const [w, tw, p] = await Promise.all([
+        mining.storedWeight(account), mining.totalWeight(), mining.pendingOf(account),
+      ]);
+      $("myWeight").textContent = w.toString();
+      $("netWeight").textContent = tw.toString();
+      $("myPending").textContent = Number(ethers.formatUnits(p, 18)).toLocaleString(undefined, { maximumFractionDigits: 2 });
+    }
+  } catch (e) { console.error(e); }
+}
+
+async function guard(fn) {
+  if (!live()) return soon();
+  if (!signer) { await connect(); if (!signer) return; }
+  try { await fn(); await refresh(); }
+  catch (e) { toast((e.shortMessage || e.message || "Transaction failed").slice(0, 140)); }
+}
+
+$("connectBtn").onclick = connect;
+$("freeMintBtn").onclick = () => guard(async () => {
+  const tx = await nft.freeMint();
+  const rc = await tx.wait();
+  const ev = rc.logs.map((l) => { try { return nft.interface.parseLog(l); } catch { return null; } })
+    .find((x) => x && x.name === "FreeMint");
+  toast(ev ? `🎉 You minted a ${TIER_NAMES[Number(ev.args[2])]} — #${ev.args[1]}!` : "Minted!");
+});
+document.querySelectorAll("[data-buy]").forEach((b) => {
+  b.onclick = () => guard(async () => {
+    const tier = Number(b.dataset.buy);
+    const cost = await nft.priceInBnb(tier);
+    const tx = await nft.buy(tier, { value: cost });
+    await tx.wait();
+    toast(`✅ ${TIER_NAMES[tier]} secured. Welcome to Genesis1999.`);
+  });
+});
+$("pokeBtn").onclick = () => guard(async () => { await (await mining.poke()).wait(); toast("⚡ Mining weight refreshed."); });
+$("claimBtn").onclick = () => guard(async () => { await (await mining.claim()).wait(); toast("💰 G1999 claimed to your wallet."); });
+
+/* ==== Launch status — read the on-chain switches, no wallet needed ==== */
+async function loadStatus() {
+  const pill = $("launchPill");
+  try {
+    const ro = new ethers.JsonRpcProvider("https://bsc-dataseed.bnbchain.org");
+    const nftRo = new ethers.Contract(CONFIG.nftAddress, NFT_ABI, ro);
+    const minRo = new ethers.Contract(CONFIG.miningAddress, MINING_ABI, ro);
+    const [freeOn, saleOn, started, minted, freeLeft] = await Promise.all([
+      nftRo.freeMintActive(), nftRo.saleActive(), minRo.started(),
+      nftRo.totalMinted(), nftRo.totalFreeRemaining(),
+    ]);
+    $("statMinted").textContent = minted.toString();
+    $("statFree").textContent = freeLeft.toString();
+
+    const mintLiveNow = freeOn || saleOn;
+    if (!freeOn) $("freeMintBtn").disabled = true;
+    if (!saleOn) document.querySelectorAll("[data-buy]").forEach((b) => { b.disabled = true; });
+    if (mintLiveNow) {
+      pill.textContent = "🟢 Mint is LIVE";
+      pill.classList.add("live");
+      $("mintNote").className = "note live";
+      $("mintNote").innerHTML = "🟢 <b>The mint is live.</b> " +
+        (freeOn ? "Free gacha mint is open (max 5 per wallet). " : "Free mint is closed. ") +
+        (saleOn ? "Guaranteed tier sales are open." : "Tier sales are closed.");
+    } else {
+      pill.textContent = "⏳ Mint is not live yet — launching soon";
+      $("mintNote").innerHTML = "⏳ <b>Mint is not live yet — launching soon.</b> The contracts are deployed " +
+        "on BNB Chain and every switch stays off until the public launch. This page reads the contract " +
+        "live — when the owner flips the switch, the buttons below unlock automatically. No need to refresh-hunt: just check back.";
+    }
+
+    if (!started) {
+      $("pokeBtn").disabled = true;
+      $("claimBtn").disabled = true;
+      $("miningNote").innerHTML = "⏳ <b>Mining has not started yet.</b> It opens in Phase 3 — after the mint " +
+        "completes and the holder airdrop lands. The 34,496,550 G1999 pool is already sitting in the mining " +
+        "contract, waiting. Weight registration (poke) and claims unlock the moment mining starts.";
+    } else {
+      $("miningNote").className = "note live";
+      $("miningNote").innerHTML = "🟢 <b>Mining is live.</b> Connect your wallet, poke to register your weight, and claim your G1999 as it accrues.";
+    }
+  } catch (e) {
+    console.error(e);
+    pill.textContent = "Launch status unavailable — check BscScan";
+  }
+}
+loadStatus();
+
+if (live() && window.ethereum) connect();
+</script>
+</body>
+</html>
