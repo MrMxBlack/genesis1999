@@ -1,4 +1,4 @@
-# Genesis1999 — Mainnet Deployment Record
+# Genesis1999, Mainnet Deployment Record
 
 Deployed 2026-10-31 (Asia/Dhaka) on BNB Smart Chain (chainId 56).
 Method: temporary deployer EOA (0x3e2c1e88d9DA43e8c0882CaA4e7a060C30083cB1) funded from the
@@ -6,7 +6,7 @@ mee.ai agentic wallet, because `baw contract-call` cannot create contracts. All 
 was transferred to the mee.ai wallet afterwards and the deployer key was shredded
 (deployer balance swept back to mee.ai first; final deployer balance 0).
 
-## Canonical contracts (owner: 0xB0cB52091aDd24aCb9542081a0f1d5a946998636 — mee.ai)
+## Canonical contracts (owner: 0xB0cB52091aDd24aCb9542081a0f1d5a946998636, mee.ai)
 
 | Contract | Address | Deploy tx |
 |---|---|---|
@@ -16,17 +16,17 @@ was transferred to the mee.ai wallet afterwards and the deployer key was shredde
 
 ## Token allocations (verified on-chain at deploy)
 - Total supply 99,990,000 G1999 (18 decimals), minted once at creation.
-- Mining1999 contract: 34,496,550 (34.5% mining pool — allocated directly by the token
+- Mining1999 contract: 34,496,550 (34.5% mining pool, allocated directly by the token
   constructor because Binance's risk engine blocks agentic-wallet transfers of the new
   token; the mining vault was set to Mining1999's predicted CREATE address).
 - mee.ai wallet: 65,493,450 (airdrop 24,497,550 + public sale 10,998,900 + promotion
   9,999,000 + team 19,998,000 buckets).
 
-## Launch switches (all OFF at deploy — owner activates at launch)
+## Launch switches (all OFF at deploy, owner activates at launch)
 - Genesis1999.freeMintActive = false, saleActive = false
 - Mining1999.started = false (call startMining() at launch; pool budget = its balance)
 
-## Superseded first-pass contracts (inert — do NOT use)
+## Superseded first-pass contracts (inert, do NOT use)
 - G1999Token v1: 0xe1fe214a4139eac3540f01f29eeaaee7b282a8a9 (all 99.99M supply sits in the
   mee.ai wallet as a dead token; its mining vault pointed at the wallet, which is why v2 exists)
 - Mining1999 v1: 0x8c136f2a0f73c5ba6238e2b8530379d64f74cb9a (points at token v1; empty)
@@ -38,7 +38,7 @@ Both are also owned by mee.ai (ownership transferred with the rest).
 - Deployer → mee.ai sweep-back: 0.0000379 BNB (tx 0xc4faa6a15dcd980749e88480a2c8aaf1d631300864ed28d914203bbb66af1870).
 - Total deployment gas: ~5.93M gas at 0.05 gwei ≈ 0.0003 BNB (~$0.21).
 
-## v3 redeploy (2026-10-31) — CANONICAL token + mining
+## v3 redeploy (2026-10-31), CANONICAL token + mining
 
 The user added a free mining tier and set the mining power ladder, which required
 redeploying the token and mining contracts (the NFT is unchanged). A second
@@ -61,6 +61,6 @@ deployed at nonce 0/1:
 - **Both v3 contracts are Sourcify exact-match verified** (see VERIFICATION.md).
 - The v2 token (0xe3fc783CE8798d1d7B916e279df6c44cDd02f9eb) and v2 mining
   (0xD9E6D088F9DCe21906b43467D3bF55a2137246DF) are SUPERSEDED/inert like v1
-  (v2 mining still holds its 34,496,550 v2 tokens — dead tokens, no rescue path
+  (v2 mining still holds its 34,496,550 v2 tokens, dead tokens, no rescue path
   by design). Canonical set is now: NFT 0x19ec51c1492aeb41e211891206a9b58bd7a965a1 ·
   Token v3 · Mining v3.
