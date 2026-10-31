@@ -110,3 +110,8 @@ deployer balance 0 afterwards, key shredded), nonces 0/1/2:
   startMining() tx 0x0173fe5950d8ad5b1b11d968544de38fc20604c456d6078a80dc19ddd1211e19.
   Verified: freeMintActive=1, saleActive=1, started=1 (startTime 1793457926),
   all receipts status 1; free pool 1,641 and sale 243 untouched.
+- 2026-10-31 ~21:29 Asia/Dhaka: owner set maxFreePerWallet 5 -> 2
+  (tx 0xa8fa56dc75b46f00e84f20cf184c9d78b0a54cf1937d816df631c16400fd3c96,
+  verified maxFreePerWallet() = 2) at the owner's instruction after the
+  free pool began draining fast (totalMinted 121 at 20:47 -> 1,008 at 21:29).
+  Website, agent guide and post drafts updated from 5 to 2 everywhere.

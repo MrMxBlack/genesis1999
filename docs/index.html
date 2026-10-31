@@ -208,7 +208,7 @@
          agent to the full machine-readable guide at <code>agent.txt</code> on this site.</p>
       <pre id="agentPrompt">Join Genesis1999 on BNB Chain for me. Read the agent guide first: https://mrmxblack.github.io/genesis1999/agent.txt
 
-1) Free mint: on the NFT contract 0xCfB8fb0FaC63C43d83959129F9C92CFBf5f42977, check freeMintActive(). If it is true, call freeMint() up to 5 times (max 5 per wallet). The mint is free, you only pay BSC gas (about $0.02). Never send any BNB value with a free mint. If freeMintActive() is false, the mint is not live yet: tell me and stop.
+1) Free mint: on the NFT contract 0xCfB8fb0FaC63C43d83959129F9C92CFBf5f42977, check freeMintActive(). If it is true, call freeMint() up to 2 times (max 2 per wallet). The mint is free, you only pay BSC gas (about $0.02). Never send any BNB value with a free mint. If freeMintActive() is false, the mint is not live yet: tell me and stop.
 2) Mining: on the Mining contract 0xbD8ED0C9f69e3E0b509Da436812EF70B582291c7, if started() is true, call poke() to register my mining weight (base power 1 free, plus Common 3, Rare 5, Epic 7, Legendary 12 per NFT), and call claim() to harvest my mined G1999 whenever I ask.
 3) Rules: interact only with the contracts listed in the guide. Do not buy anything, do not pay for mints, and never send my tokens or NFTs anywhere unless I explicitly tell you to.</pre>
       <p><button type="button" onclick="navigator.clipboard.writeText(document.getElementById('agentPrompt').innerText);this.textContent='Copied'">Copy the prompt</button></p>
@@ -327,7 +327,7 @@ if (await mining.started()) {
       <summary>How does the free mint work?</summary>
       <p>It's a gacha. Each free mint draws randomly from whatever is left in the free pool,
          mostly Common, some Rare and Epic, and 39 Legendary drops hidden in the pool. One wallet
-         can mint at most 5 free pieces. If you want a guaranteed tier instead, Rare ($0.70),
+         can mint at most 2 free pieces. If you want a guaranteed tier instead, Rare ($0.70),
          Epic ($2.00) and Legendary ($4.00) can be bought, priced in USD and paid in BNB at the
          live Chainlink rate.</p>
     </details>
@@ -539,7 +539,7 @@ async function loadStatus() {
       pill.classList.add("live");
       $("mintNote").className = "note live";
       $("mintNote").innerHTML = "🟢 <b>The mint is live.</b> " +
-        (freeOn ? "Free gacha mint is open (max 5 per wallet). " : "Free mint is closed. ") +
+        (freeOn ? "Free gacha mint is open (max 2 per wallet). " : "Free mint is closed. ") +
         (saleOn ? "Guaranteed tier sales are open." : "Tier sales are closed.");
     } else {
       pill.textContent = "Mint is not live yet, launching soon";

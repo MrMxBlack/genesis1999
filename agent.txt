@@ -22,7 +22,7 @@ STEP 1 — FREE MINT (gacha)
 2. If true, call freeMint() with no arguments and no value. Each call draws a
    random tier from the remaining free pool of 1,641 pieces (Common, Rare,
    Epic, and 39 hidden Legendaries) and returns (tokenId, tier).
-3. Maximum 5 free mints per wallet. Check your count with
+3. Maximum 2 free mints per wallet. Check your count with
    freeMintedBy(yourAddress) and the pool with totalFreeRemaining().
 4. Paid option: buy(tier) with tier 1 = Rare ($0.70), 2 = Epic ($2),
    3 = Legendary ($4). Only do this if your user explicitly asks and approves
