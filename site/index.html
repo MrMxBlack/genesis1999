@@ -140,16 +140,16 @@
     <div class="grid">
       <div class="card" style="--ac:var(--common)"><img class="art" src="assets/common.webp" alt="Common Genesis1999, cream origami paper companion"><h3>COMMON</h3><div class="big">1,100</div>
         <p>Cream paper, a tiny sprout, the gentlest smile, the everyday companion.</p>
-        <p>Free mint only.</p><ul><li>Airdrop ≈ 3,410 G1999</li><li>Mining weight ×1</li></ul></div>
+        <p>Free mint only.</p><ul><li>Airdrop ≈ 3,410 G1999</li><li>Mining power 3</li></ul></div>
       <div class="card" style="--ac:var(--rare)"><img class="art" src="assets/rare.webp" alt="Rare Genesis1999, sky-blue and silver origami paper companion"><h3>RARE</h3><div class="big">450</div>
         <p>Sky-blue folds touched with silver, the tier everyone calls the prettiest.</p>
-        <p>Free mint, or guaranteed for $0.70.</p><ul><li>Airdrop ≈ 10,229 G1999</li><li>Mining weight ×3</li></ul></div>
+        <p>Free mint, or guaranteed for $0.70.</p><ul><li>Airdrop ≈ 10,229 G1999</li><li>Mining power 5</li></ul></div>
       <div class="card" style="--ac:var(--epic)"><img class="art" src="assets/epic.webp" alt="Epic Genesis1999, violet and gold-foil origami paper companion"><h3>EPIC</h3><div class="big">250</div>
         <p>Deep violet paper brushed with gold leaf, quietly regal.</p>
-        <p>Free mint, or guaranteed for $2.00.</p><ul><li>Airdrop ≈ 23,867 G1999</li><li>Mining weight ×7</li></ul></div>
+        <p>Free mint, or guaranteed for $2.00.</p><ul><li>Airdrop ≈ 23,867 G1999</li><li>Mining power 7</li></ul></div>
       <div class="card" style="--ac:var(--legendary)"><img class="art" src="assets/legendary.webp" alt="Legendary Genesis1999, black and gold-foil origami paper companion with halo"><h3>LEGENDARY</h3><div class="big">199</div>
         <p>Black paper and gold foil, crowned with a halo, the masterpiece fold.</p>
-        <p>Rare gacha drops, mining rewards, or $4.00.</p><ul><li>Airdrop ≈ 51,143 G1999</li><li>Mining weight ×15</li></ul></div>
+        <p>Rare gacha drops, mining rewards, or $4.00.</p><ul><li>Airdrop ≈ 51,143 G1999</li><li>Mining power 12</li></ul></div>
     </div>
   </section>
 
@@ -238,8 +238,10 @@ if (await nft.freeMintActive()) {
               (≈1.109 G1999/sec in epoch 0) that <b>halves every 180 days</b>, Bitcoin-style.</li>
           <li><b>Weight:</b> your share = your weight ÷ total network weight. Every wallet starts with a
               free base power of <b>1</b>, mining works even with zero holdings. On top of that:
-              Weight = 1 + Σ (NFTs held × tier power 3 / 5 / 7 / 12) + whole G1999 balance × 1,
-              so a Common NFT (3) mines three times faster than the free tier, and a Legendary (12) twelve times.
+              Weight = 1 + Σ (NFTs held × tier power 3 / 5 / 7 / 12) + token value power, where token
+              value power = (whole G1999 held × token reference price) ÷ $0.40 per power. The owner sets
+              the reference price; until it is set, held tokens add no power yet. So a Common NFT (3) mines
+              three times faster than the free tier, and a Legendary (12) twelve times.
               Preview it any time with <code>currentWeight(address)</code>.</li>
           <li><b>Register:</b> weight only counts once registered, call <code>poke()</code> after
               acquiring NFTs or tokens, and again whenever your holdings change.</li>
@@ -329,18 +331,19 @@ if (await mining.started()) {
       <summary>What is G1999 and what is it for?</summary>
       <p>G1999 is the project's token: a fixed supply of 99,990,000, minted once at deployment,
          no tax, no further minting. It is distributed by mining (34.5%), a holder airdrop (24.5%),
-         a public sale (11%), promotion (10%) and the team (20%). Holding G1999 also adds mining
-         weight, so miners compound their position.</p>
+         a public sale (11%), promotion (10%) and the team (20%). Held G1999 also adds mining
+         power by value, so miners can compound their position.</p>
     </details>
     <details>
       <summary>How does mining work?</summary>
       <p>Bitcoin-style: a fixed emission that halves every 180 days, split between miners in
-         proportion to their weight. Everyone can mine for free, every wallet carries a base
-         weight of 5 with no holdings at all. Weight grows with the NFTs you hold (Common ×1,
-         Rare ×3, Epic ×7, Legendary ×15, each worth 100 per ladder point) plus your G1999
-         balance, so holders mine much faster than the free tier. Call <code>poke()</code> to
-         register your weight after your holdings change, and <code>claim()</code> whenever you
-         want to collect. More miners joining means a smaller slice each, early miners mine faster.</p>
+         proportion to their weight. Everyone can mine for free, every wallet starts with a base
+         power of 1, no holdings needed. NFTs add power by tier (Common 3, Rare 5, Epic 7,
+         Legendary 12), and held G1999 adds power by value, (whole tokens × token reference
+         price) ÷ $0.40 per power, once the owner sets the reference price. Holders mine much
+         faster than the free tier. Call <code>poke()</code> to register your weight after your
+         holdings change, and <code>claim()</code> whenever you want to collect. More miners
+         joining means a smaller slice each, early miners mine faster.</p>
     </details>
     <details>
       <summary>When is the airdrop?</summary>
@@ -368,8 +371,8 @@ if (await mining.started()) {
     <a href="https://bscscan.com/address/0x19ec51c1492aeb41e211891206a9b58bd7a965a1" target="_blank" rel="noopener">NFT on BscScan</a>
     <a href="https://bscscan.com/address/0xC3c403ed9297f059B633cEdAA75Bf0602419D8e6" target="_blank" rel="noopener">Token on BscScan</a>
     <a href="https://bscscan.com/address/0xcc26bACC9429D3a861623a05793B0812D965A71b" target="_blank" rel="noopener">Mining on BscScan</a>
-    <span title="Launching soon">𝕏, launching soon</span>
-    <span title="Launching soon">GitHub, launching soon</span>
+    <a href="https://x.com/Genesis1999G" target="_blank" rel="noopener">𝕏 @Genesis1999G</a>
+    <a href="https://github.com/MrMxBlack/genesis1999" target="_blank" rel="noopener">GitHub</a>
   </div>
   <div class="contracts">
     Genesis1999 NFT · 0x19ec51c1492aeb41e211891206a9b58bd7a965a1<br>
