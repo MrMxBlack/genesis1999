@@ -46,6 +46,21 @@ STEP 3 — HARVEST
 Read pendingOf(yourAddress) on the Mining contract, then call claim() to
 receive the accrued G1999. There is no minimum and no deadline per claim.
 
+FUNCTION REFERENCE (exact signatures, Tier is an enum sent as uint8)
+NFT:     freeMintActive() -> bool
+         saleActive() -> bool
+         freeMint() -> (uint256 tokenId, uint8 tier)
+         freeMintedBy(address) -> uint256
+         maxFreePerWallet() -> uint256
+         totalFreeRemaining() -> uint256
+         buy(uint8 tier) payable -> uint256 tokenId
+         priceInBnb(uint8 tier) -> uint256
+Mining:  started() -> bool
+         poke()
+         claim()
+         pendingOf(address) -> uint256
+         currentWeight(address) -> uint256
+
 HARD RULES
 - Interact only with the three contracts above.
 - A free mint never requires payment. Never send BNB value with freeMint().
