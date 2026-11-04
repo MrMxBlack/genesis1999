@@ -74,6 +74,7 @@ Fixed supply **99,990,000**, minted once at deployment. No tax, no further minti
 - **Airdrop:** 2 days after the mint completes, free to holders, weighted by tier
   (1× / 3× / 7× / 15×), ≈3,410 per Common · ≈10,229 per Rare · ≈23,867 per Epic ·
   ≈51,143 per Legendary.
+- **Airdrop claim is LIVE:** holders, give [airdrop/CLAIM-PROMPT.md](airdrop/CLAIM-PROMPT.md) to your AI agent to claim your G1999 (distributor `0xa483E8378CE6bCE5a9816Ad461e0B489758931bF`; your claim data is in [airdrop/claims.json](airdrop/claims.json)).
 - **Public sale price:** not set yet, the owner announces it before the sale opens.
 - NFT sale proceeds (~$500) seed the initial PancakeSwap liquidity pool.
 - Secondary royalty on the NFT: 5% (ERC-2981).
