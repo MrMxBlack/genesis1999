@@ -1,0 +1,155 @@
+{
+ "generatedAt": "2026-11-04T16:53:04.585Z",
+ "nft": "0xCfB8fb0FaC63C43d83959129F9C92CFBf5f42977",
+ "method": "ownerOf+tierOf for all ids 1..1999 via two independent batched passes (dataseed1, dataseed3) + repeat batch rechecks + two-RPC single-call resolution of residual suspects; queue-math checksums enforced before writing outputs",
+ "validation": {
+  "mintedIs1756": true,
+  "unmintedIs243": true,
+  "mintedTiersMatchQueueMath": true,
+  "unmintedTiersMatchSaleQueues": true
+ },
+ "totalMintedScanned": 1756,
+ "unmintedIds": 243,
+ "uniqueWallets": 842,
+ "tierMinted": {
+  "Common": 1100,
+  "Rare": 382,
+  "Epic": 175,
+  "Legendary": 99
+ },
+ "weights": {
+  "Common": 1,
+  "Rare": 3,
+  "Epic": 7,
+  "Legendary": 15
+ },
+ "totalWeight": "4956",
+ "poolG1999": "24497550",
+ "perNftG1999": {
+  "Common": "4943.00847457627118644",
+  "Rare": "14829.02542372881355932",
+  "Epic": "34601.05932203389830508",
+  "Legendary": "74145.1271186440677966"
+ },
+ "distributedG1999": "24497549.99999999999999664",
+ "dustG1999": "0.00000000000000336",
+ "checksum": "distributed 24497549.99999999999999664 + dust 0.00000000000000336 = 24497550 = pool 24497550",
+ "projectControlledHolders": {
+  "meeAiWallet": {
+   "address": "0xb0cb52091add24acb9542081a0f1d5a946998636",
+   "counts": [
+    0,
+    30,
+    25,
+    60
+   ],
+   "totalG1999": "5758604.8728813559322026"
+  },
+  "miningContract": {
+   "address": "0xbd8ed0c9f69e3e0b509da436812ef70b582291c7"
+  },
+  "note": "Included in the CSV like every holder; include/exclude is a user decision before any sending."
+ },
+ "top10": [
+  {
+   "wallet": "0xb0cb52091add24acb9542081a0f1d5a946998636",
+   "counts": [
+    0,
+    30,
+    25,
+    60
+   ],
+   "totalG1999": "5758604.8728813559322026"
+  },
+  {
+   "wallet": "0xd49fc0d6c5f2db742ad2e61feec27a9b3653f5f5",
+   "counts": [
+    2,
+    0,
+    1,
+    2
+   ],
+   "totalG1999": "192777.33050847457627116"
+  },
+  {
+   "wallet": "0x8ae07e2259cbb8ffe73c8b63991a9cc157e8bcec",
+   "counts": [
+    3,
+    0,
+    0,
+    2
+   ],
+   "totalG1999": "163119.27966101694915252"
+  },
+  {
+   "wallet": "0x93cd9200ac24283337b056c92cd701a1572684e6",
+   "counts": [
+    0,
+    0,
+    0,
+    2
+   ],
+   "totalG1999": "148290.2542372881355932"
+  },
+  {
+   "wallet": "0xcfff607c2ace30bf467ec7ec85c8033127d7c875",
+   "counts": [
+    2,
+    2,
+    0,
+    1
+   ],
+   "totalG1999": "113689.19491525423728812"
+  },
+  {
+   "wallet": "0x497eac56074bf5da26b8d5bec4d0a6cb25162566",
+   "counts": [
+    2,
+    2,
+    0,
+    1
+   ],
+   "totalG1999": "113689.19491525423728812"
+  },
+  {
+   "wallet": "0x61f8d1f2014a582e1e74622f76caf2f4fdf8eedc",
+   "counts": [
+    2,
+    2,
+    0,
+    1
+   ],
+   "totalG1999": "113689.19491525423728812"
+  },
+  {
+   "wallet": "0xf28b23fc7f7c42b9626e0927d6875c7795a7d3d2",
+   "counts": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "totalG1999": "108746.18644067796610168"
+  },
+  {
+   "wallet": "0xcda41c5d21485930fd0d7fafcdd43b083cf184af",
+   "counts": [
+    3,
+    1,
+    0,
+    1
+   ],
+   "totalG1999": "103803.17796610169491524"
+  },
+  {
+   "wallet": "0x91f8658f1927396286b286885f8775bf4d5a8868",
+   "counts": [
+    3,
+    1,
+    0,
+    1
+   ],
+   "totalG1999": "103803.17796610169491524"
+  }
+ ]
+}
